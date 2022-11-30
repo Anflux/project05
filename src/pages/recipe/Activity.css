@@ -1,0 +1,43 @@
+.activity {
+    max-width: 1200px;
+    margin: 50px auto;
+    text-align: center;
+    background: #fff;
+    padding: 40px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+  }
+  .activity ul {
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    margin-top: 0;
+  }
+  .activity li {
+    list-style-type: none;
+    margin-right: 10px;
+    color: #777;
+  }
+  .activity li::after {
+    content: ",";
+  }
+  .activity li:last-child::after {
+    content: ".";
+  }
+  .method {
+    text-align: center;
+    line-height: 1.5em;
+    padding-bottom: 30px;
+  }
+
+  .other {
+    text-align: center;
+    line-height: 1.5em;
+  }
+
+  .user {
+    text-align: right;
+    vertical-align: bottom;
+    padding: 20px;
+    color:chocolate;
+  }
