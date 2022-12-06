@@ -1,6 +1,7 @@
-import { useFetch } from "../../hooks/useFetch";
 import { useLocation } from "react-router-dom";
 import ActivityList from "../../components/ActivityList";
+import { projectFirestore } from "../../firebase/config";
+import { useEffect, useState } from "react";
 
 // styles
 import "./Search.css";
@@ -9,10 +10,40 @@ export default function Search() {
   const queryString = useLocation().search;
   const queryParams = new URLSearchParams(queryString);
   const query = queryParams.get("q");
+  const [data, setData] = useState(null);
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState(false);
 
-  const url = "http://localhost:3001/activities?q=" + query;
-  const { error, isPending, data } = useFetch(url);
 
+  useEffect(() => {
+    setIsPending(true);
+    const unsub = projectFirestore
+      .collection("Activities")
+      .where("title", ">=", query)
+      .onSnapshot(
+        (snapshot) => {
+          if (snapshot.empty) {
+            setError("No activities to load...");
+            setIsPending(false);
+            setData(null);
+          } else {
+            let results = [];
+            snapshot.docs.forEach((doc) => {
+              results.push({ id: doc.id, ...doc.data() });
+              setError("");
+            });
+            setData(results);
+            setIsPending(false);
+          }
+        },
+        (err) => {
+          setError(err.message);
+          setIsPending(false);
+        }
+      );
+
+    return () => unsub();
+  }, [query]);
 
   return (
     <div>

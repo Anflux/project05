@@ -13,6 +13,13 @@
     justify-content: center;
     margin-top: 0;
   }
+  .activity img {
+    cursor: pointer;
+  }
+  .activity img:hover {
+    cursor: pointer;
+    filter: invert(60%);
+  }
   .activity li {
     list-style-type: none;
     margin-right: 10px;
@@ -40,4 +47,18 @@
     vertical-align: bottom;
     padding: 20px;
     color:chocolate;
+  }
+
+  .edit {
+    position: absolute;
+    top: 30.7%;
+    right: 15%;
+    width: 35px;
+    height: 35px;
+  }
+
+  .delete {
+    position: absolute;
+    top: 30%;
+    right: 10%;
   }

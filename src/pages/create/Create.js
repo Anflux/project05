@@ -23,6 +23,7 @@ const Create = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    let likes = 0;
     const doc = {
       title,
       tags,
@@ -32,6 +33,7 @@ const Create = () => {
       time,
       city,
       street,
+      likes,
       contactInfo,
       uid: currentUser.uid,
       displayName: currentUser.displayName,
