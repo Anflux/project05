@@ -1,33 +1,29 @@
+.popup-overlay {
+  background-color: rgba(221, 218, 218, 0.977);
+  margin-top: 25%;
+  border-radius: 3%;
+}
+.react-confirm-alert-overlay {
+  background: rgba(223, 222, 222, 0.449);
+  overflow:auto;
+  
+}
+
+
 .create {
   color: #555;
-  max-width: 980px;
-  margin: auto auto;
   width: 900px;
   border: 8px solid rgb(148, 135, 145);
   padding: 20px 100px;
   text-align: center;
   border-radius: 30px;
-  box-shadow:0 0 15px 5px #ccc;
-
+  box-shadow: 0 0 15px 5px #ccc;
 }
 .create label span {
   display: block;
   margin: 30px 0 10px;
 }
 .create input {
-  border:none;
-  outline:none;
-  display:inline-block;
-  vertical-align:middle;
-  position:relative;
-  border-radius:18px;
-  box-sizing:border-box;
-  padding: 8px 18px;  
-  overflow:auto;
-  word-wrap: break-word;
-}
-
-.create textarea {
   border: none;
   outline: none;
   display: inline-block;
@@ -37,6 +33,17 @@
   box-sizing: border-box;
   padding: 8px 18px;
 }
+
+.create textarea {
+    border: none;
+    outline: none;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    border-radius: 18px;
+    box-sizing: border-box;
+    padding: 8px 18px;
+  }
 
 .create p {
   margin-top: 10px;
@@ -64,13 +71,11 @@
 }
 
 .description {
-  height: 140px;
-  vertical-align: top;
-  text-align:left;
-  
+  padding-top: 1%;
+  padding-bottom: 1%;
+  text-align: left;
+  font-family:'Times New Roman', Times, serif
 }
-
-
 
 .specifics {
   display: grid;

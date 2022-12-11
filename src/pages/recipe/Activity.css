@@ -13,6 +13,7 @@
     justify-content: center;
     margin-top: 0;
   }
+
   .activity img {
     cursor: pointer;
   }
@@ -34,13 +35,22 @@
   .method {
     text-align: center;
     line-height: 1.5em;
+    padding: 50px 50px;
     padding-bottom: 30px;
+    white-space: pre-line;
+    border-radius: 50px;
+    text-indent: 20px;
+    border-left: 5px solid rgba(217, 216, 217, 0.891);
+    border-right: 5px solid rgba(217, 216, 217, 0.891);
   }
 
   .other {
-    text-align: center;
+    text-align: left;
     line-height: 1.5em;
+    padding-top: 20px;
+    font-weight:500;
   }
+  
 
   .user {
     text-align: right;

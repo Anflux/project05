@@ -8,6 +8,7 @@ import { AuthContext } from "../../context/Auth";
 import { useContext } from "react";
 import {confirmAlert} from "react-confirm-alert"
 import "react-confirm-alert/src/react-confirm-alert.css";
+import CustomUI from "../../UI/CustomUi";
 
 const Activity = () => {
   const { id } = useParams();
@@ -35,15 +36,16 @@ const Activity = () => {
     });
   };
 
-  const editHandler = (e, id) =>{
+  const editHandler = (e, id, data) =>{
     e.preventDefault();
+    confirmAlert({
+      customUI: ({onClose}) => {
+        return (
+          <CustomUI e={e} id={id} data={data} onClose={onClose}/>          
+        );
+      }
+    });
   }
-
-  // const clickHandler = () =>{
-  //   projectFirestore.collection("Activities").doc(id).update({
-  //     title: "something else"
-  //   })
-  // }
 
   useEffect(()=>{
     setIsPending(true);
@@ -58,7 +60,7 @@ const Activity = () => {
       }
     })
     return () => unsub();
-  }, [id])
+  }, [id, navigate])
 
   return (
     <div className="activity">
@@ -67,19 +69,19 @@ const Activity = () => {
       {data && (
         <>
           <h2 className="page-title">{data.title}</h2>
-          <p>Will take {data.activityTime} to do.</p>
           <ul>
             {data.tags.map((ing) => (
               <li key={ing}>{ing}</li>
             ))}
           </ul>
           <p className="method">{data.description}</p>
-          <p className="other">{data.date}, {data.time}</p>
-          <p className="other">{data.city}, {data.street}</p>
+          <p className="other"> - Will take: {data.activityTime} minutes.</p>
+          <p className="other"> - Date: {data.date}, {data.time}</p>
+          <p className="other"> - Street: {data.city}, {data.street}</p>
           <p className="user">Created by: {data.displayName}</p>
           <p className="user">Contact Info: {data.contactInfo}</p>
           {currentUser.uid===data.uid && <img className="delete" alt="Delete" src={Trashcan} onClick={(e)=>deleteHandler(e,id)}/>}
-          {currentUser.uid===data.uid && <img className="edit" alt="Edit" src={Edit} onClick={(e)=>editHandler(e,id)}/>}
+          {currentUser.uid===data.uid && <img className="edit" alt="Edit" src={Edit} onClick={(e)=>editHandler(e,id, data)}/>}
         </>
       )}
     </div>

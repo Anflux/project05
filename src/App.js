@@ -14,6 +14,7 @@ import { useContext } from "react";
 
 function App() {
   const {currentUser} = useContext(AuthContext)
+
   return (
     <div className="App">
         <BrowserRouter>
@@ -31,6 +32,7 @@ function App() {
             <Route path="/login" element={!currentUser ? <Login /> : <Navigate to="/" />} />
 
             <Route path="/signup" element={!currentUser ? <Signup /> : <Navigate to="/" />} />
+            
           </Routes>
         </BrowserRouter>
     </div>

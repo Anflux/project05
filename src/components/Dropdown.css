@@ -1,0 +1,31 @@
+.dropdown{
+    padding-bottom: 45px;
+    padding-right: 50px;
+}
+.dropdown-menu{
+    width: 140px;
+    text-align: left;
+    color: black;
+    position: absolute;
+    
+}
+
+.dropdown-list{
+    border-left: 15px solid rgba(167, 139, 231, 0.714);
+    border-radius: 5px;
+    font-weight: 500;
+    text-align: left;
+    box-shadow: 55px 5px 8px 1px #ccc;
+}
+
+.dropdown-menu li{
+    margin:auto -50px;
+    list-style: none;
+    padding-bottom: 14px;
+    background-color: white;
+}
+
+.dropdown-menu li:hover{
+    background-color: whitesmoke;
+    color: rgb(78, 74, 74);
+}

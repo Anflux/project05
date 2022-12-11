@@ -19,7 +19,7 @@ export default function Search() {
     setIsPending(true);
     const unsub = projectFirestore
       .collection("Activities")
-      .where("title", ">=", query)
+      .where("title", ">=", query.toUpperCase())
       .onSnapshot(
         (snapshot) => {
           if (snapshot.empty) {

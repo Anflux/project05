@@ -23,16 +23,18 @@ const Create = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    let likes = 0;
+    let likes = 1;
+    let likedUsers = [currentUser.uid];
     const doc = {
       title,
       tags,
       description,
-      activityTime: activityTime + " minutes ",
+      activityTime: activityTime,
       date,
       time,
       city,
       street,
+      likedUsers,
       likes,
       contactInfo,
       uid: currentUser.uid,
@@ -93,7 +95,7 @@ const Create = () => {
 
         <label>
           <span>Activity Description:</span>
-          <input
+          <textarea
             className="description"
             type="text"
             onChange={(e) => setDescription(e.target.value)}

@@ -7,6 +7,7 @@ import { useTheme } from '../hooks/useTheme'
 import { projectAuth } from '../firebase/config'
 import { AuthContext } from '../context/Auth'
 import Logout from "../assets/logout.png"
+import Dropdown from './Dropdown'
 
 
 const Navbar = () => {
@@ -20,6 +21,7 @@ const Navbar = () => {
             </Link>
             {currentUser && <Searchbar/>}
             {currentUser && <img alt="logout" src={Logout} onClick={()=> projectAuth.signOut() && <Navigate to= "/"/>} className='signout'/>}
+            {currentUser && <Dropdown/>}
             {currentUser && <Link to="/create"> Create An Activity </Link>}
         </nav>
     </div>

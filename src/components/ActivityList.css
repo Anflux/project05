@@ -9,10 +9,13 @@
     background: #fff;
     color: #333;
     padding: 20px;
+    max-width: 300px;
     border-radius: 4px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     position: relative;
+    overflow:initial;
+    word-wrap: break-word;
   }
   .activity-list .card:hover {
     transform: rotate(3deg);
