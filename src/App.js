@@ -10,13 +10,14 @@ import Signup from "./pages/signup/Signup";
 import ThemeSelector from "./components/ThemeSelector";
 import Activity from "./pages/recipe/Activity";
 import { AuthContext } from "./context/Auth";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import Settings from "./pages/settings/Settings";
 
 function App() {
   const {currentUser} = useContext(AuthContext)
 
   return (
-    <div className="App">
+    <div className="App"> 
         <BrowserRouter>
           <Navbar />
           <ThemeSelector />
@@ -27,11 +28,13 @@ function App() {
 
             <Route path="/search" element={currentUser? <Search /> : <Navigate to="/login"/>} />
 
-            <Route path="/activities/:id" element={!currentUser ? <Login /> : <Navigate to="/activity/:id" /> && <Activity/>} />
+            <Route path="/activities/:id" element={currentUser ? <Navigate to="/activity/:id"/> && <Activity/> :<Login />} />
 
             <Route path="/login" element={!currentUser ? <Login /> : <Navigate to="/" />} />
-
+            
             <Route path="/signup" element={!currentUser ? <Signup /> : <Navigate to="/" />} />
+
+            <Route path="/settings" element={currentUser ? <Settings /> : <Navigate to="/" />} />
             
           </Routes>
         </BrowserRouter>

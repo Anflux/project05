@@ -14,12 +14,14 @@
     color: #fff;
     text-decoration: none;
   }
+
   .navbar img {
     display: flex;
     font-size: 0.8em;
     width: 40px;
     height: 40px;  
     padding-top: 4px;
+    padding-left: 10px;
     color: #fff;
     border: 0;
     border-radius: 10px;
@@ -29,7 +31,7 @@
     margin: 0px 20px;
   }
   
-  .navbar a:last-child {
+  .navbar a.lastLink {
     color: #fff;
     text-decoration: none;
     margin-left: 40px;
@@ -37,7 +39,7 @@
     border: 1px solid #fff;
     border-radius: 4px;
   }
-  .navbar a:last-child:hover {
+  .navbar a.lastLink:last-child:hover {
     background: #fff;
     color: #333;
   }
