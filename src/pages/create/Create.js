@@ -117,7 +117,7 @@ const Create = () => {
           <span>Date:</span>
           <input
             type="date"
-            min="2022-11-30"
+            min= {new Date().toJSON().slice(0, 10)}
             onChange={(e) => setDate(e.target.value)}
             value={date}
             required

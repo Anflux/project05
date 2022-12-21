@@ -30,7 +30,7 @@ const Activity = () => {
         },
         {
           label: "No",
-          onClick: () => <input type="text"></input>
+          onClick: () => ""
         }
       ]
     });

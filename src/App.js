@@ -10,8 +10,10 @@ import Signup from "./pages/signup/Signup";
 import ThemeSelector from "./components/ThemeSelector";
 import Activity from "./pages/recipe/Activity";
 import { AuthContext } from "./context/Auth";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import Settings from "./pages/settings/Settings";
+import MyLikes from "./pages/likes/MyLikes";
+import MyPosts from "./pages/posts/MyPosts";
 
 function App() {
   const {currentUser} = useContext(AuthContext)
@@ -35,6 +37,10 @@ function App() {
             <Route path="/signup" element={!currentUser ? <Signup /> : <Navigate to="/" />} />
 
             <Route path="/settings" element={currentUser ? <Settings /> : <Navigate to="/" />} />
+
+            <Route path="/mylikes" element={currentUser ? <MyLikes /> : <Navigate to="/" />} />
+
+            <Route path="/myposts" element={currentUser ? <MyPosts /> : <Navigate to="/" />} />
             
           </Routes>
         </BrowserRouter>
