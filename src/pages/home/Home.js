@@ -18,7 +18,9 @@ const Home = () => {
           setIsPending(false);
         } else {
           let results = [];
+          let today = new Date().toJSON().slice(0, 10);
           snapshot.docs.forEach((doc) => {
+            if(doc.data().date >= today)
             results.push({ id: doc.id, ...doc.data() });
           });
           setData(results);
