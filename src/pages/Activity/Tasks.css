@@ -1,0 +1,60 @@
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+  margin: 5%; /* Use percentage instead of fixed pixel units */
+}
+
+.task-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-input input {
+  margin-right: 2%; /* Use percentage instead of fixed pixel units */
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2% 0; /* Use percentage instead of fixed pixel units */
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-name {
+  font-weight: bold;
+}
+
+.task-progress-container {
+  max-width: 80%; /* Use percentage instead of fixed pixel units */
+  width: 100%; /* Full width on all screens */
+  height: 20px; /* Consider changing this to a relative unit */
+  background-color: #f0f0f0;
+}
+
+.task-progress {
+  height: 100%;
+  background-color: #4caf50;
+}
+
+.tasks-container button {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .task-progress-container {
+    max-width: 95%; /* Use larger percentage on small screens */
+  }
+}
