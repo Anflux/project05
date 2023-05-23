@@ -1,36 +1,40 @@
-import { useLocation } from "react-router-dom";
-import ActivityList from "../../components/ActivityList";
-import { projectFirestore } from "../../firebase/config";
-import { useEffect, useState } from "react";
+import { useLocation } from 'react-router-dom';
+import ActivityList from '../../components/ActivityList';
+import { projectFirestore } from '../../firebase/config';
+import { useEffect, useState } from 'react';
 
 // styles
-import "./Search.css";
+import './Search.css';
 
 export default function Search() {
   const queryString = useLocation().search;
   const queryParams = new URLSearchParams(queryString);
-  const query = queryParams.get("q");
+  const query = queryParams.get('q');
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(false);
 
-
   useEffect(() => {
     setIsPending(true);
+    const searchKeywords = query
+      .toLowerCase()
+      .split(' ')
+      .filter((word) => word.trim() !== '');
+
     const unsub = projectFirestore
-      .collection("Activities")
-      .where("title", '>=', query)
+      .collection('Activities')
+      .where('tags', 'array-contains-any', searchKeywords)
       .onSnapshot(
         (snapshot) => {
           if (snapshot.empty) {
-            setError("No activities to load...");
+            setError('No activities to load...');
             setIsPending(false);
             setData(null);
           } else {
             let results = [];
             snapshot.docs.forEach((doc) => {
               results.push({ id: doc.id, ...doc.data() });
-              setError("");
+              setError('');
             });
             setData(results);
             setIsPending(false);

@@ -1,20 +1,26 @@
-import React, {createContext, useEffect, useState} from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { projectAuth } from "../firebase/config";
 
 export const AuthContext = createContext();
 
-export const AuthProvider = ({children}) => {
-    const [currentUser, setCurrentUser] = useState(null);
+export const AuthProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-    useEffect( () =>{
-       projectAuth.onAuthStateChanged(setCurrentUser);
-    }, [])
+  useEffect(() => {
+    const unsubscribe = projectAuth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+      setLoading(false);
+    });
 
-    
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   return (
-    <AuthContext.Provider value = {{currentUser}}> {/* we pass in our current user which we get from firebase */}
-        {children}
+    <AuthContext.Provider value={{ currentUser, loading }}>
+      {children}
     </AuthContext.Provider>
-  )
-}
+  );
+};

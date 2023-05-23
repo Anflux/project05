@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Volunteer activity coordinating system</string>
+    <string name="title_activity_main">Volunteer activity coordinating system</string>
+    <string name="package_name">com.volunteeractivitycoordinatingsystem.app</string>
+    <string name="custom_url_scheme">com.volunteeractivitycoordinatingsystem.app</string>
+</resources>

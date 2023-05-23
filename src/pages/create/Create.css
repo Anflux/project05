@@ -1,15 +1,43 @@
 .create {
   color: #555;
-  max-width: 980px;
+  max-width: 80%; 
   margin: auto auto;
-  width: 900px;
-  border: 8px solid rgb(148, 135, 145);
-  padding: 20px 100px;
+  width: 60%; 
+  border: 5px solid rgb(148, 135, 145);
+  padding: 60px;
   text-align: center;
   border-radius: 30px;
-  box-shadow:0 0 15px 5px #ccc;
-
+  box-shadow: 0 0 15px 5px #ccc;
 }
+
+@media (max-device-width: 600px) {
+  .create{
+    padding: 25px;
+    margin: auto auto;
+    box-shadow: 0 0 15px 5px #ccc;
+    border: none; 
+    
+  }
+}
+
+@media (max-device-width: 600px) {
+  .other {
+    justify-self: center;
+    align-self: center;
+    padding: auto auto;
+
+  }
+}
+
+
+.page-title {
+
+  @media (max-width: 600px) {
+    font-size: 1.2rem;
+  }
+}
+
+
 .create label span {
   display: block;
   margin: 30px 0 10px;
@@ -25,6 +53,7 @@
   padding: 8px 18px;  
   overflow:auto;
   word-wrap: break-word;
+  text-align: center;
 }
 
 .create textarea {
@@ -63,6 +92,40 @@
   margin: 0 0 0 10px;
 }
 
+ul {
+  list-style-type: none;
+}
+
+.city-input {
+  position: relative; 
+  width: 100%;
+  text-align: center;
+}
+
+.autocomplete-dropdown {
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px 0;
+  margin-top: 5px;
+  max-height: 200px;
+  margin: auto auto;
+  overflow-y: auto;
+  width: 100%; /* change the width to 100% for better responsiveness */
+  z-index: 1000;
+}
+
+
+.autocomplete-dropdown li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.autocomplete-dropdown li:hover {
+  background-color: #f1f1f1;
+}
+
 .description {
   height: 140px;
   vertical-align: top;
@@ -75,9 +138,49 @@
 .specifics {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 8px;
+  justify-content: center; 
+  align-items: center; 
   text-align: center;
-  padding: 10px auto;
+  padding: 10px;
   margin: 40px auto;
   padding-bottom: 3px;
+}
+
+@media (max-device-width: 600px) {
+  .specifics{
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    align-self: center;
+    width:fit-content;
+  }
+}
+
+
+.other {
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+}
+
+
+@media (max-device-width: 600px) {
+  .create input{
+    border: 1px solid rgb(148, 135, 145);
+    
+  }
+}
+
+@media (max-device-width: 600px) {
+  .create .description{
+    border: 1px solid rgb(148, 135, 145);
+  }
+}
+
+@media (max-device-width: 600px) {
+  .city-input{
+    width: 30%;
+  }
 }

@@ -54,7 +54,7 @@ function CustomUi({ e, id, data, onClose}) {
         <form onSubmit={submitHandler}>
           <label>
             <span>Activity Title:</span>
-            <input
+            <input className="this-title"
               type="text"
               onChange={(e) => setTitle(e.target.value)}
               value={title}

@@ -1,21 +1,25 @@
-.dropdown{
+.dropdown {
     height: 2rem;
-}
-.dropdown-menu{
+  }
+  .dropdown-menu {
     width: 100px;
     text-align: center;
     color: black;
     position: relative;
     cursor: pointer;
-    padding-top: 5px;
+    padding-top: 1px;
+    margin-left: 30px;
+    margin-right: -50px;
     z-index: 2;
-}
-
-.dropdown-menu img{
+    display: flex;
+    align-items: center;
+  }
+  
+  .dropdown-menu img {
     display: flex;
     font-size: 0.8em;
     width: 40px;
-    height: 40px;  
+    height: 0px;
     padding-top: 0px;
     padding-left: 30px;
     color: #fff;
@@ -25,36 +29,49 @@
     cursor: pointer;
     text-decoration: none;
     margin: -5px 20px;
-}
-.dropdown-menu:hover{
-    color:rgb(6, 5, 5);
-}
-
-.dropdown-list{
+  }
+  .dropdown-menu:hover {
+    color: rgb(6, 5, 5);
+  }
+  
+  .dropdown-list {
     list-style-type: none;
-    position: flex;
+    position: absolute;
     text-align: center;
     padding-right: 50px;
     width: 100px;
-    margin: 25px -20px;
-    border-radius: 20px;
-    border: 1px solid rgb(148, 135, 145);
-    background-color: rgba(244, 241, 241, 0.71);
-    font-weight:400;
-}
-.dropdown-list a{
+    margin: 230px 0 0 -60px;
+    border-radius: 10px;
+    border: 1px solid rgba(148, 135, 145, 0.2);
+    background-color: #fff;
+    font-weight: 400;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateY(10px);
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  .dropdown-menu:hover .dropdown-list {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+  
+  .dropdown-list a {
     text-decoration: none;
     color: black;
-}
-
-.dropdown-list li{
-    border:1px solid transparent;
-    padding-bottom: 5px;
-}
-.dropdown-list li:hover{
+  }
+  
+  .dropdown-list li {
+    border: 1px solid transparent;
+    padding: 10px 0;
+    transition: all 0.3s ease;
+  }
+  .dropdown-list li:hover {
     border-radius: 10px;
-    border-right: 40px solid rgb(71, 69, 70);;
+    border-right: 40px solid rgb(71, 69, 70);
     border: 0px solid rgb(205, 200, 203);
     background-color: rgb(231, 229, 229);
-}
-
+    color: #333;
+  }
+  

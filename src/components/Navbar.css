@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: -10px auto;
   }
   .navbar a.brand {
     margin-right: auto;

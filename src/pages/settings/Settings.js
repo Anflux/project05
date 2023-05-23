@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./Settings.css";
+import "./Settings.css"; // make sure to update the CSS file name if you've changed it
 import { useState } from "react";
 import { AuthContext } from "../../context/Auth";
 import { projectAuth } from "../../firebase/config";
@@ -10,51 +10,49 @@ const Settings = () => {
   const [newDisplayName, setNewDisplayName] = useState(currentUser.displayName);
   const [editDisplayName, setEditDisplayName] = useState(false);
 
-    const resetPasswordHandler = async () => {
-      try {
-          await projectAuth.sendPasswordResetEmail(currentUser.email)        ;
-      } catch (error) {
-          alert(error);
-      }
+  const resetPasswordHandler = async () => {
+    try {
+      await projectAuth.sendPasswordResetEmail(currentUser.email);
+    } catch (error) {
+      alert(error);
+    }
   }
 
-
-    const changeDisplaynameHandler = async () => {
-      try {
-        
-          await currentUser.updateProfile({displayName:newDisplayName});
-          setEditDisplayName(false)
-      } catch (error) {
-          alert(error);
-      }
+  const changeDisplaynameHandler = async () => {
+    try {
+      await currentUser.updateProfile({ displayName: newDisplayName });
+      setEditDisplayName(false);
+    } catch (error) {
+      alert(error);
+    }
   }
 
   return (
-    <div className="container">
-      <div className="list">
-        <label>
-          <span>Email Adress</span>
+    <div className="settings-container">
+      <div className="settings-list">
+        <label className="settings-label">
+          <span>Email Address</span>
           <input
-            className="inp"
+            className="settings-input"
             type="email"
             value={currentUser.email}
             disabled
           />
         </label>
-        <label>
+        <label className="settings-label">
           <span>Display Name:</span>
           <input
-            className="inp"
+            className="settings-input"
             type="text"
             value={newDisplayName}
-            disabled = {!editDisplayName}
+            disabled={!editDisplayName}
             onChange={(e) => setNewDisplayName(e.target.value)}
           />
-          {!editDisplayName && <button className="edit" onClick={()=>setEditDisplayName(true)}>Edit</button>}
-          {editDisplayName && <button className="edit" onClick={()=>changeDisplaynameHandler()}>Save</button>}
+          {!editDisplayName && <button className="settings-button" onClick={() => setEditDisplayName(true)}>Edit</button>}
+          {editDisplayName && <button className="settings-button" onClick={changeDisplaynameHandler}>Save</button>}
         </label>
-        {!passwordSent && <button className="password-reset" onClick={()=>resetPasswordHandler() && setPasswordSent(true)}>Change password</button>}
-        {passwordSent && <button className="password-reset">Email sent!</button>}
+        {!passwordSent && <button className="settings-button" onClick={() => {resetPasswordHandler(); setPasswordSent(true);}}>Change password</button>}
+        {passwordSent && <button className="settings-button">Email sent!</button>}
       </div>
     </div>
   );
